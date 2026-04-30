@@ -173,7 +173,8 @@ function QrModal({
   );
 }
 
-function formatNumber(num: number): string {
+function formatNumber(num: number | undefined | null): string {
+  if (num == null || Number.isNaN(num)) return '0';
   if (num >= 10000) return (num / 10000).toFixed(1) + '万';
   if (num >= 1000) return (num / 1000).toFixed(1) + '千';
   return num.toLocaleString();

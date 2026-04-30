@@ -15,7 +15,7 @@ const MODEL_ENV_MAP = {
   "Z-Image-Turbo": "Z_Image_Turbo_URL",
   "Flux-2": "Flux_2_URL",
   "grok-imagine-1.0": "GROK_IMAGINE_API_URL",
-  "nano-banana-2": "REPLICATE_API_TOKEN"
+  "nano-banana-2": "POLLINATIONS_FLUX_MODEL"
 } as const;
 
 /**

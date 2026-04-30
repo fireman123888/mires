@@ -14,7 +14,7 @@ const MODEL_ENV_MAP = {
   "Z-Image-Turbo": "Z_Image_Turbo_URL",
   "Flux-2": "Flux_2_URL",
   "grok-imagine-1.0": "GROK_IMAGINE_API_URL",
-  "nano-banana-2": "REPLICATE_API_TOKEN"
+  "nano-banana-2": "POLLINATIONS_FLUX_MODEL"
 } as const;
 
 // 基础模型配置
@@ -178,11 +178,11 @@ export const ALL_MODELS: ModelConfig[] = [
     image: "/models/nano-banana-2.jpg",
     homepageCover: "/models/homepageModelCover/nano-banana-2.png",
     description: "Google 基于 Gemini 3.1 Flash Image 构建的高效图像生成与编辑模型，支持文生图与图生图（最多3张参考图），具备高保真输出、精准文字渲染与多种画面比例。",
-    use_i2i: true,
+    use_i2i: false,
     use_t2i: true,
-    maxImages: 3,
+    maxImages: 0,
     tags: ["chineseSupport"],
-    requiresLogin: true
+    requiresLogin: false
   }
 ];
 
