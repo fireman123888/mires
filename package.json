@@ -2,6 +2,9 @@
   "name": "dreamifly",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "node scripts/reset-concurrency-on-startup.js && next dev",
     "build": "node -e \"try { require('fs').rmSync('.next', { recursive: true, force: true }); } catch(e) {}\" && next build",
