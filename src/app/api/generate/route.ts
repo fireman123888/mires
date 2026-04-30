@@ -14,6 +14,10 @@ import { addWatermark } from '@/utils/watermark'
 import { getModelBaseCost, calculateGenerationCost, checkPointsSufficient, deductPoints, getPointsBalance, refundPoints } from '@/utils/points'
 import { getModelThresholds, isLoginRequiredModel } from '@/utils/modelConfig'
 
+// Vercel Hobby plan caps at 300s. Pollinations image gen can take 30s+
+// so the default 10s would always time out.
+export const maxDuration = 300
+
 /**
  * 验证动态API token
  * 支持±1分钟时间窗口，处理时间边界问题
