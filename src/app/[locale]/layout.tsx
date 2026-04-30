@@ -17,6 +17,11 @@ import { user } from '@/db/schema'
 import { eq, sql } from 'drizzle-orm'
 import { locales, defaultLocale } from '@/config'
 
+// Force all pages under [locale] to be dynamic (SSR per request).
+// Skips static generation, which has been failing on Vercel with
+// "TypeError: Invalid URL" during page data collection.
+export const dynamic = 'force-dynamic'
+
 const inter = Inter({ subsets: ['latin'] })
 const umamiWebsiteId = "7fd99628-3822-4bae-a794-b2d1d8926678"
 const umamiSrc = "https://umami.suanleme.cn:3000/script.js"
