@@ -51,12 +51,14 @@ const nextConfig = {
   },
 
   // 修复构建时的 .nft.json 和 trace 文件错误
-  // 优化输出文件跟踪，排除可能导致权限问题的目录
+  // NOTE: do NOT exclude '**/node_modules/**' — that strips runtime deps like
+  // next/dist/compiled/source-map from the Vercel function bundle and causes
+  // "Cannot find module" errors at cold start. Vercel itself decides which
+  // node_modules paths to ship via tracing; this list is for non-build dirs.
   outputFileTracingExcludes: {
     '*': [
       '**/.git/**',
       '**/.next/**',
-      '**/node_modules/**',
       '**/.cache/**',
       '**/trace',
       '**/trace/**',
