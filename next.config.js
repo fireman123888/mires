@@ -50,20 +50,10 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  // 修复构建时的 .nft.json 和 trace 文件错误
-  // NOTE: do NOT exclude '**/node_modules/**' — that strips runtime deps like
-  // next/dist/compiled/source-map from the Vercel function bundle and causes
-  // "Cannot find module" errors at cold start. Vercel itself decides which
-  // node_modules paths to ship via tracing; this list is for non-build dirs.
-  outputFileTracingExcludes: {
-    '*': [
-      '**/.git/**',
-      '**/.next/**',
-      '**/.cache/**',
-      '**/trace',
-      '**/trace/**',
-    ],
-  },
+  // outputFileTracingExcludes intentionally NOT set — the upstream Dreamifly
+  // project's exclusion list (including '**/.next/**' and '**/node_modules/**')
+  // strips files that Vercel needs at runtime, causing FUNCTION_INVOCATION_FAILED
+  // with "Cannot find module 'next/dist/...'" errors. Use Vercel defaults.
 };
 
 // 最后应用 next-intl 插件
